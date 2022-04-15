@@ -5,5 +5,19 @@
   margin: 0px;
 }
 
-.nav-h1 {
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.card-description {
+  margin-top: 10px;
+}
+
+.card-title {
+  margin-bottom: 15px;
+}
+
+strong {
+  font-weight: 800px;
 }
