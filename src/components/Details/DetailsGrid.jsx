@@ -7,15 +7,18 @@ const DetailsGrid = ({ details }) => {
   const navigate = useNavigate();
 
   const countries = useSelector((state) => state.countries.countries);
-  const borders = countries.filter((country) => {
+  // eslint-disable-next-line
+  const borders = countries.map((country) => {
     let isBorder = false;
     details.borders.map((border) => {
-      // console.log(country.fifa, border);
       if (border === country.cioc) {
         isBorder = !isBorder;
       }
+      return isBorder;
     });
-    if (isBorder) return country;
+    if (isBorder) {
+      return country;
+    }
   });
 
   return (
@@ -83,7 +86,7 @@ const DetailsGrid = ({ details }) => {
               key={border.name.common}
               component={motion.button}
               onClick={() =>
-                navigate(`/details/${border.name.common.replaceAll(" ", "&")}`)
+                navigate(`/details/${border.name.common.replaceAll(" ", "%")}`)
               }
               variant="contained"
               sx={{ margin: 2 }}

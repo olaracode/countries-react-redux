@@ -49,11 +49,11 @@ const ActionsBar = () => {
               },
             }}
           >
-            <MenuItem value="">America</MenuItem>
             <MenuItem value="">Africa</MenuItem>
             <MenuItem value="">America</MenuItem>
-            <MenuItem value="">America</MenuItem>
-            <MenuItem value="">America</MenuItem>
+            <MenuItem value="">Asia</MenuItem>
+            <MenuItem value="">Europe</MenuItem>
+            <MenuItem value="">Oceania</MenuItem>
           </Select>
         </FormControl>
       </Grid>

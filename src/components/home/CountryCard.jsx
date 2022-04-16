@@ -13,7 +13,7 @@ const CountryCard = ({ country }) => {
   let population = country.population;
   let navigate = useNavigate();
 
-  let detailsUrl = country.name.common.replaceAll(" ", "&");
+  let detailsUrl = country.name.common.replaceAll(" ", "%");
 
   return (
     <Card

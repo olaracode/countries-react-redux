@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { Paper, Button, Grid, Box } from "@mui/material";
+import { Paper, Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DetailsGrid from "../components/Details/DetailsGrid";
 
@@ -9,7 +9,7 @@ const Details = () => {
   const params = useParams();
   const navigate = useNavigate();
   const countries = useSelector((state) => state.countries.countries);
-  let name = params.name.replace("&", " ");
+  let name = params.name.replace("%", " ");
   const details = countries?.find((country) => country.name.common === name);
 
   return (
