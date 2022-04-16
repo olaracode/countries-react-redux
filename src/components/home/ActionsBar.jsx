@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   TextField,
@@ -9,14 +9,23 @@ import {
   InputAdornment,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useDispatch } from "react-redux";
+import { setSearchByName } from "../../store/countriesSlice";
 
 const ActionsBar = () => {
+  const dispatch = useDispatch();
+
+  const handleSearch = (e) => {
+    dispatch(setSearchByName(e.target.value));
+  };
+
   return (
     <Grid container sx={{ justifyContent: "space-between" }}>
       <Grid item lg={4} xs={8}>
         <TextField
           placeholder="Search for a country..."
           fullWidth
+          onChange={(e) => handleSearch(e)}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

@@ -65,6 +65,15 @@ const dark = {
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#2b3945",
+          color: "white",
+          padding: "5px 30px",
+        },
+      },
+    },
   },
 };
 

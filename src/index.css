@@ -18,6 +18,14 @@
   margin-bottom: 15px;
 }
 
+.details {
+  margin-bottom: 15px;
+}
+
 strong {
   font-weight: 800px;
+}
+
+button:hover {
+  background-color: inherit !important;
 }

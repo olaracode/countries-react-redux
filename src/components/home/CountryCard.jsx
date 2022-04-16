@@ -2,6 +2,8 @@ import React from "react";
 import { Card, CardMedia, CardContent, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 const cardStyles = {
   paddingY: "3vh",
   paddingX: "2vh",
@@ -9,8 +11,13 @@ const cardStyles = {
 
 const CountryCard = ({ country }) => {
   let population = country.population;
+  let navigate = useNavigate();
+
+  let detailsUrl = country.name.common.replaceAll(" ", "&");
+
   return (
     <Card
+      onClick={() => navigate(`/details/${detailsUrl}`)}
       component={motion.div}
       whileHover={{
         boxShadow: "0px 0px 5px #ffffff",
@@ -21,7 +28,7 @@ const CountryCard = ({ country }) => {
       <CardMedia component="img" image={country.flags.png} alt="Country" />
       <CardContent>
         <Box sx={cardStyles}>
-          <h3 className="card-title">{country.name?.common}</h3>
+          <h3 className="card-title">{country.name.common}</h3>
           <p className="card-description">
             <strong>Population: </strong> {population.toLocaleString()}
           </p>

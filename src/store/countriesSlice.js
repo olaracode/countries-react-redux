@@ -21,7 +21,14 @@ const countriesSlice = createSlice({
     searchByRegion: "",
     filteredCountries: [],
   },
-  reducers: {},
+  reducers: {
+    setSearchByName: (state, action) => {
+      let filtered = state.countries.filter((country) => {
+        return country.name.common.includes(action.payload);
+      });
+      state.filteredCountries = filtered;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCountries.fulfilled, (state, action) => {
       // Add countries to the state array
@@ -30,4 +37,5 @@ const countriesSlice = createSlice({
   },
 });
 
+export const { setSearchByName, getDetails } = countriesSlice.actions;
 export default countriesSlice.reducer;

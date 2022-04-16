@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import Layout from "./Layout.jsx";
 import { Provider } from "react-redux";
 import configureStore from "./store/store.js";
+import "./index.css";
 
 /**
  * Using REACT 18 render Method
