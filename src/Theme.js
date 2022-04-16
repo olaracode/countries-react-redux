@@ -133,6 +133,9 @@ const light = {
           backgroundColor: "hsl(0, 0%, 100%)",
           color: "black",
           padding: "5px 30px",
+          "&:hover": {
+            backgroundColor: "hsl(0, 0%, 100%)",
+          },
         },
         "& .MuiOutlinedInput-root": {
           "& fieldset": {

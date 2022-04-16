@@ -29,7 +29,6 @@ const countriesSlice = createSlice({
     },
 
     setSearchByRegion: (state, action) => {
-      console.log(action.payload);
       let filtered = state.countries.filter((country) => {
         return country.region === action.payload;
       });
@@ -42,11 +41,12 @@ const countriesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchCountries.fulfilled, (state, action) => {
       // Add countries to the state array
-      state.countries = action.payload;
+      state.countries = [...action.payload];
     });
   },
 });
 
 export const { setSearchByName, setSearchByRegion, setTheme } =
   countriesSlice.actions;
+
 export default countriesSlice.reducer;

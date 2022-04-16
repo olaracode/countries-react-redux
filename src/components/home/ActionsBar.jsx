@@ -55,8 +55,8 @@ const ActionsBar = () => {
           }}
         />
       </Grid>
-      <Grid item lg={2} xs={6}>
-        <FormControl sx={{ width: "100%", m: 1 }}>
+      <Grid item lg={2} xs={6} sx={{ marginTop: { lg: 0, sm: 5, xs: 5 } }}>
+        <FormControl sx={{ width: "100%" }}>
           <InputLabel id="filter">Filter By Region</InputLabel>
           <Select
             label="Filter By Region"
@@ -70,6 +70,8 @@ const ActionsBar = () => {
               },
             }}
           >
+            <MenuItem value={""}>None</MenuItem>
+
             <MenuItem value={"Africa"}>Africa</MenuItem>
             <MenuItem value={"Americas"}>America</MenuItem>
             <MenuItem value={"Asia"}>Asia</MenuItem>

@@ -107,10 +107,6 @@ const DetailsGrid = ({ details }) => {
                 }
                 variant="contained"
                 sx={{ margin: 2 }}
-                whileHover={{
-                  backgroundColor: "inherit",
-                  boxShadow: "0px 0px 5px #ffffff",
-                }}
               >
                 {border.name.common}
               </Button>
