@@ -29,3 +29,12 @@ strong {
 button:hover {
   background-color: inherit !important;
 }
+
+.custom-select {
+  height: 100%;
+  width: 100%;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border: 0px !important;
+}

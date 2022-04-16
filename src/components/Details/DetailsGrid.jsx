@@ -3,16 +3,31 @@ import { Grid, Box, Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+
+/**
+ *
+ * @props
+ *  Recibe los detalles del pais en forma de objeto
+ *
+ * @returns
+ *  Componente principal de Details
+ *
+ * @functions
+ *  Genera un array con los objetos de los paises fronterizos a partir de details.borders
+ *  Genera Links para los detalles de los paises fronterizos
+ *
+ */
 const DetailsGrid = ({ details }) => {
   const navigate = useNavigate();
 
   const countries = useSelector((state) => state.countries.countries);
   // eslint-disable-next-line
-  const borders = countries.map((country) => {
+  const borders = countries.filter((country) => {
     let isBorder = false;
     details.borders.map((border) => {
       if (border === country.cioc) {
-        isBorder = !isBorder;
+        isBorder = true;
       }
       return isBorder;
     });
@@ -20,7 +35,6 @@ const DetailsGrid = ({ details }) => {
       return country;
     }
   });
-
   return (
     <Grid container spacing={10}>
       <Grid item lg={6} sm={12}>
@@ -81,27 +95,34 @@ const DetailsGrid = ({ details }) => {
           }}
         >
           <p>Border Countries: </p>
-          {borders.map((border) => (
-            <Button
-              key={border.name.common}
-              component={motion.button}
-              onClick={() =>
-                navigate(`/details/${border.name.common.replaceAll(" ", "%")}`)
-              }
-              variant="contained"
-              sx={{ margin: 2 }}
-              whileHover={{
-                backgroundColor: "inherit",
-                boxShadow: "0px 0px 5px #ffffff",
-              }}
-            >
-              {border.name.common}
-            </Button>
-          ))}
+          {details.borders.length > 0 &&
+            borders.map((border) => (
+              <Button
+                key={border.name.common}
+                component={motion.button}
+                onClick={() =>
+                  navigate(
+                    `/details/${border.name.common.replaceAll(" ", "%")}`
+                  )
+                }
+                variant="contained"
+                sx={{ margin: 2 }}
+                whileHover={{
+                  backgroundColor: "inherit",
+                  boxShadow: "0px 0px 5px #ffffff",
+                }}
+              >
+                {border.name.common}
+              </Button>
+            ))}
         </Grid>
       </Grid>
     </Grid>
   );
+};
+
+DetailsGrid.propTypes = {
+  details: PropTypes.object,
 };
 
 export default DetailsGrid;

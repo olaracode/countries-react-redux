@@ -10,9 +10,11 @@ import PlaceholderCard from "../components/home/PlaceholderCard";
  *
  * @Details
  *  Vista principal de la aplicación
- *  Componentes:
+ *
+ * @Components
  *    Barra de acciones(Busqueda/Filtro) - ActionBar.jsx
  *    Carta de pais - CountryCard.jsx
+ *    Carta de loading - PlaceholderCard.jsx
  *
  */
 
@@ -28,7 +30,7 @@ const Home = () => {
   );
 
   return (
-    <Paper sx={{ minHeight: "100vh" }}>
+    <Paper sx={{ minHeight: "100vh", padding: "15vh 5vw" }}>
       <ActionsBar />
       <Grid container spacing={10} sx={{ marginY: "5vh" }}>
         {countries.length < 1

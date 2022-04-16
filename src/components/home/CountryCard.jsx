@@ -4,10 +4,19 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-const cardStyles = {
-  paddingY: "3vh",
-  paddingX: "2vh",
-};
+/**
+ *
+ * @props
+ *  objeto de country
+ *
+ * @returns
+ *  Carta con detalles de los paises
+ *
+ * @functions
+ *   Crea un url valido para react router dom(reemplaza los " " por "%")
+ *   Maneja la navegacion a la vista de detalles
+ *
+ */
 
 const CountryCard = ({ country }) => {
   let population = country.population;
@@ -27,7 +36,7 @@ const CountryCard = ({ country }) => {
     >
       <CardMedia component="img" image={country.flags.png} alt="Country" />
       <CardContent>
-        <Box sx={cardStyles}>
+        <Box sx={{ paddingY: "3vh", paddingX: "2vh" }}>
           <h3 className="card-title">{country.name.common}</h3>
           <p className="card-description">
             <strong>Population: </strong> {population.toLocaleString()}

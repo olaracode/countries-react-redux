@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./NavBar";
 import Home from "./views/Home";
 import Details from "./views/Details";
-import { dark } from "./Theme.js";
+import { dark, light } from "./Theme.js";
 
 /**
  *
@@ -18,13 +18,17 @@ import { dark } from "./Theme.js";
  *
  * @funciones
  *   Controla el "Toggle" del modo oscuro
+ *   Crea el layout de la aplicacion
+ *   Provee el themeprovider a la aplicacion
  *
  */
 
 function App() {
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.countries.isDarkTheme);
+
   const darkTheme = createTheme(dark);
-  const lightTheme = createTheme({});
+  const lightTheme = createTheme(light);
 
   const getCountries = () => {
     dispatch(fetchCountries());
@@ -36,7 +40,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme ? darkTheme : lightTheme}>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />

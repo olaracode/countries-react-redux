@@ -17,9 +17,8 @@ const countriesSlice = createSlice({
   name: "countries",
   initialState: {
     countries: [],
-    searchByName: "",
-    searchByRegion: "",
     filteredCountries: [],
+    isDarkTheme: false,
   },
   reducers: {
     setSearchByName: (state, action) => {
@@ -27,6 +26,17 @@ const countriesSlice = createSlice({
         return country.name.common.includes(action.payload);
       });
       state.filteredCountries = filtered;
+    },
+
+    setSearchByRegion: (state, action) => {
+      console.log(action.payload);
+      let filtered = state.countries.filter((country) => {
+        return country.region === action.payload;
+      });
+      state.filteredCountries = filtered;
+    },
+    setTheme: (state, action) => {
+      state.isDarkTheme = !state.isDarkTheme;
     },
   },
   extraReducers: (builder) => {
@@ -37,5 +47,6 @@ const countriesSlice = createSlice({
   },
 });
 
-export const { setSearchByName, getDetails } = countriesSlice.actions;
+export const { setSearchByName, setSearchByRegion, setTheme } =
+  countriesSlice.actions;
 export default countriesSlice.reducer;

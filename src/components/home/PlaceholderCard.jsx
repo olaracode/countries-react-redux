@@ -3,13 +3,14 @@ import { Card, CardMedia, CardContent, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const cardStyles = {
-  paddingY: "3vh",
-  paddingX: "2vh",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-};
+/**
+ *
+ * @props
+ *  Numero que funciona como key para el map
+ *
+ * @returns
+ *  Carta que funciona como loader para el home
+ */
 
 const PlaceholderCard = ({ placeholder }) => {
   return (
@@ -20,7 +21,15 @@ const PlaceholderCard = ({ placeholder }) => {
         alt="Country"
       />
       <CardContent>
-        <Box sx={cardStyles}>
+        <Box
+          sx={{
+            paddingY: "3vh",
+            paddingX: "2vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <Box
             sx={{ height: "20px", width: "80%", backgroundColor: "#fafafa" }}
           />
