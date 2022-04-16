@@ -24,6 +24,7 @@ const ActionsBar = () => {
               </InputAdornment>
             ),
           }}
+          sx={{ border: "none" }}
         />
       </Grid>
       <Grid item lg={2} xs={6}>

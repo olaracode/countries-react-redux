@@ -17,6 +17,9 @@ const countriesSlice = createSlice({
   name: "countries",
   initialState: {
     countries: [],
+    searchByName: "",
+    searchByRegion: "",
+    filteredCountries: [],
   },
   reducers: {},
   extraReducers: (builder) => {

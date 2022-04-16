@@ -56,6 +56,15 @@ const dark = {
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "hsl(209, 23%, 22%)",
+          borderColor: "hsl(209, 23%, 22%)",
+          border: 0,
+        },
+      },
+    },
   },
 };
 

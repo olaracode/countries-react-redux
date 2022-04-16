@@ -1,33 +1,35 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Box } from "@mui/material";
-
+import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 const cardStyles = {
   paddingY: "3vh",
   paddingX: "2vh",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
 };
 
-const CountryCard = () => {
+const CountryCard = ({ country }) => {
+  let population = country.population;
   return (
-    <Card>
-      <CardMedia
-        component="img"
-        image="https://via.placeholder.com/100"
-        alt="Country"
-      />
+    <Card
+      component={motion.div}
+      whileHover={{
+        boxShadow: "0px 0px 5px #ffffff",
+        cursor: "pointer",
+        y: -10,
+      }}
+    >
+      <CardMedia component="img" image={country.flags.png} alt="Country" />
       <CardContent>
         <Box sx={cardStyles}>
-          <h3 className="card-title">Country Name</h3>
+          <h3 className="card-title">{country.name?.common}</h3>
           <p className="card-description">
-            <strong>Population: </strong> 1111111111
+            <strong>Population: </strong> {population.toLocaleString()}
           </p>
           <p className="card-description">
-            <strong>Region: </strong> 1111111111
+            <strong>Region: </strong> {country.region}
           </p>
           <p className="card-description">
-            <strong>Capital: </strong> 1111111111
+            <strong>Capital: </strong> {country.capital}
           </p>
         </Box>
       </CardContent>
@@ -35,4 +37,7 @@ const CountryCard = () => {
   );
 };
 
+CountryCard.propTypes = {
+  country: PropTypes.object,
+};
 export default CountryCard;
