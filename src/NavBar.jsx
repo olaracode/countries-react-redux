@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Container } from "@mui/material";
+import { AppBar } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";

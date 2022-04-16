@@ -41,7 +41,7 @@ const countriesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchCountries.fulfilled, (state, action) => {
       // Add countries to the state array
-      state.countries = [...action.payload];
+      state.countries = action.payload;
     });
   },
 });

@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Box } from "@mui/material";
-import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
 /**

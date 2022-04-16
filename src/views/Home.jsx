@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Paper, Grid } from "@mui/material";
-import { fetchCountries } from "../store/countriesSlice";
 import ActionsBar from "../components/home/ActionsBar";
 import CountryCard from "../components/home/CountryCard";
 import PlaceholderCard from "../components/home/PlaceholderCard";
@@ -19,8 +18,6 @@ import PlaceholderCard from "../components/home/PlaceholderCard";
  */
 
 const Home = () => {
-  let dispatch = useDispatch();
-
   let placeHolders = [1, 2, 3, 4];
 
   const countries = useSelector((state) => state.countries.countries);

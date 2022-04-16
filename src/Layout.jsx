@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { fetchCountries } from "./store/countriesSlice";
 import { useDispatch, useSelector } from "react-redux";
-
+import { fetchCountries } from "./store/countriesSlice";
 import NavBar from "./NavBar";
 import Home from "./views/Home";
 import Details from "./views/Details";
