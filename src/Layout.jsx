@@ -29,13 +29,12 @@ function App() {
   const darkTheme = createTheme(dark);
   const lightTheme = createTheme(light);
 
-  const getCountries = () => {
-    dispatch(fetchCountries());
-  };
-
   useEffect(() => {
+    const getCountries = () => {
+      dispatch(fetchCountries());
+    };
     getCountries();
-  }, []);
+  }, [dispatch]);
 
   return (
     <BrowserRouter>

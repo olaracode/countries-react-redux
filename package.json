@@ -1,6 +1,5 @@
 {
   "name": "countries-rest",
-  "homepage": "https://olaracode.github.io/countries-react-redux/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
